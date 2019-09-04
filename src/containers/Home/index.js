@@ -3,8 +3,8 @@ import Table from '../../components/Table';
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
+        <div style={{margin: 10}}>
+            <h1>Gerenciar Usuários</h1>
             <Table />
         </div>
     )
