@@ -23,20 +23,35 @@ export const add = (user) => {
             .then( res => {
                 console.log(res)
                 dispatch(addUser(user))
+                fetchUsers()
             })
 
     }
 }
 
-export const edit = (id) => {
+export const edit = (id, update) => {
     return dispatch => {
-        request.put(id)
+        request.put(`/${id}`, update)
             .then( res => {
-                // console.log(res)
+                console.log(res)
                 dispatch(editUser(id))
+                fetchUsers()
             })
 
     }
+}
+
+export const deleteData = (id) => {
+    return dispatch => {
+        request.delete(`/${id}`)
+            .then( res => {
+                console.log(res)
+                dispatch(deleteUser(id))
+                fetchUsers()
+            })
+
+    }
+
 }
 
 // export default fetchUsers

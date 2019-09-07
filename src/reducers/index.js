@@ -19,7 +19,8 @@ const usersReducer = (state = initialState, action) => {
         case "EDIT_USER":
             return {
                 ...state, 
-                id: action.payload
+                id: action.payload,
+                update: action.update
             }
         case "DELETE_USER":
             return {

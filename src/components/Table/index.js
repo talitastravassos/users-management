@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MaterialTable from 'material-table';
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers, add } from "../../API/request"
+import { fetchUsers, add, edit, deleteData } from "../../API/request"
 
 import { tableIcons } from "./TableIcons";
 
@@ -25,12 +25,12 @@ const Table = () => {
     
     useEffect(() => {
         dispatch(fetchUsers())
-        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         console.log(users)
+        // dispatch(fetchUsers())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [users])
 
@@ -52,18 +52,15 @@ const Table = () => {
                     new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
-                            const data = [...users];
-                            data[data.indexOf(oldData)] = newData;
-                            setState({ ...state, data });
+                            dispatch(edit(oldData.id, newData))
+                            dispatch(fetchUsers())
                         }, 600);
                     }),
                 onRowDelete: oldData =>
                     new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
-                            const data = [...users];
-                            data.splice(data.indexOf(oldData), 1);
-                            setState({ ...state, data });
+                            dispatch(deleteData(oldData.id))
                         }, 600);
                     }),
             }}
