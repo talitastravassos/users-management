@@ -14,7 +14,7 @@ const usersReducer = (state = initialState, action) => {
         case "ADD_USER":
             return {
                 ...state, 
-                user: action.payload
+                users: action.payload
             }    
         case "EDIT_USER":
             return {
