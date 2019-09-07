@@ -5,7 +5,8 @@ import { fetchUsers, add, edit, deleteData } from "../../API/request"
 
 import { tableIcons } from "./TableIcons";
 
-const Table = () => {
+const TableUsers = () => {
+    // eslint-disable-next-line no-unused-vars
     const [state, setState] = useState({
         columns: [
             { title: 'ID', field: 'id' },
@@ -46,7 +47,7 @@ const Table = () => {
                         setTimeout(() => {
                             resolve();
                             dispatch(add(newData))
-                        }, 500);
+                        }, 300);
                     }),
                 onRowUpdate: (newData, oldData) =>
                     new Promise(resolve => {
@@ -54,18 +55,18 @@ const Table = () => {
                             resolve();
                             dispatch(edit(oldData.id, newData))
                             dispatch(fetchUsers())
-                        }, 600);
+                        }, 300);
                     }),
                 onRowDelete: oldData =>
                     new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
                             dispatch(deleteData(oldData.id))
-                        }, 600);
+                        }, 300);
                     }),
             }}
         />
     )
 }
 
-export default Table
+export default TableUsers
