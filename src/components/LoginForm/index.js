@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import auth from "../../Auth/auth";
+import { withRouter } from 'react-router'
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -25,7 +27,7 @@ const useStyles = makeStyles(theme => ({
       }
   }));
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     const classes = useStyles();
     const [values, setValues] = useState({
         email: 'usuario1@email.com.br',
@@ -56,7 +58,15 @@ const LoginForm = () => {
                     onChange={handleChange('password')}
                     margin="normal"
                 />
-                <Button variant="contained" color="primary" className={classes.button}>
+                <Button 
+                    variant="contained" 
+                    color="primary" 
+                    className={classes.button}
+                    onClick={() => {
+                        auth.login(() => {
+                          props.history.push("/");
+                        });
+                    }}>
                     Entrar
                 </Button>
             </form>
@@ -64,4 +74,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm
+export default withRouter(LoginForm)
