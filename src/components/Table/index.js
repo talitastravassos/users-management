@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MaterialTable from 'material-table';
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers } from "../../API/request"
+import { fetchUsers, add } from "../../API/request"
 
 import { tableIcons } from "./TableIcons";
 
@@ -25,6 +25,7 @@ const Table = () => {
     
     useEffect(() => {
         dispatch(fetchUsers())
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -44,10 +45,8 @@ const Table = () => {
                     new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
-                            const data = [...users];
-                            data.push(newData);
-                            setState({ ...state, data });
-                        }, 600);
+                            dispatch(add(newData))
+                        }, 500);
                     }),
                 onRowUpdate: (newData, oldData) =>
                     new Promise(resolve => {
