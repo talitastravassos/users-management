@@ -32,7 +32,6 @@ const TableUsers = () => {
 
     useEffect(() => {
         console.log(users)
-        // dispatch(fetchUsers())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [users])
 
