@@ -54,7 +54,7 @@ const TableUsers = () => {
                     new Promise(resolve => {
                         setTimeout(() => {
                             resolve();
-                            dispatch(edit(oldData.id, newData))
+                            dispatch(edit(oldData, newData))
                         }, 300);
                     }),
                 onRowDelete: oldData =>

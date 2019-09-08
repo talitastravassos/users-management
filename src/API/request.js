@@ -28,12 +28,12 @@ export const add = (user) => {
     }
 }
 
-export const edit = (id, update) => {
+export const edit = (old, update) => {
     return dispatch => {
-        request.put(`/${id}`, update)
+        request.put(`/${old.id}`, update)
             .then( res => {
                 console.log(res)
-                dispatch(editUser(id))
+                dispatch(editUser(update))
             })
 
     }

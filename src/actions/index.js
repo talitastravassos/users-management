@@ -7,22 +7,21 @@ export const getUsers = (users) => {
 
 export const addUser = (user) => {
     return {
-        type: "ADD_USERS",
+        type: "ADD_USER",
         payload: user
     }
 }
 
-export const editUser = (id, update) => {
+export const editUser = (user) => {
     return {
-        type: "EDIT_USERS",
-        payload: id,
-        update: update
+        type: "EDIT_USER",
+        payload: user
     }
 }
 
 export const deleteUser = (id) => {
     return {
-        type: "DELETE_USERS",
+        type: "DELETE_USER",
         payload: id
     }
 }
