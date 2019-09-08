@@ -1,3 +1,5 @@
+import notifications from "./notifications";
+
 class Auth {
     constructor() {
       console.log(localStorage.getItem("logged"))
@@ -9,17 +11,19 @@ class Auth {
       }
     }
   
-    login(user, cb) {
+    login(user, callback) {
       this.authenticated = true;
       localStorage.setItem("logged", JSON.stringify(user))
+      notifications.success("Bem-vindo!")
       console.log(user)
-      cb();
+      callback();
     }
   
-    logout(cb) {
+    logout(callback) {
       this.authenticated = false;
       localStorage.removeItem("logged")
-      cb();
+      notifications.success("Você saiu do sistema.")
+      callback();
     }
   
     isAuthenticated() {
