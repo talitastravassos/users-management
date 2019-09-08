@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MaterialTable from 'material-table';
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers, add, edit, deleteData } from "../../API/request"
+import { fetchUsers, add, edit, deleteData } from "../../API/requests"
 
 import { tableIcons } from "./TableIcons";
 
@@ -29,11 +29,6 @@ const TableUsers = () => {
         dispatch(fetchUsers())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    useEffect(() => {
-        console.log(users)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [users])
 
     return (
         <MaterialTable
