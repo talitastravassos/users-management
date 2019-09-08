@@ -31,11 +31,12 @@ const LoginForm = (props) => {
     const classes = useStyles();
     const [values, setValues] = useState({
         email: 'usuario1@email.com.br',
-        password: ""
+        password: "123456"
     });
 
       const handleChange = name => event => {
         setValues({ ...values, [name]: event.target.value });
+        console.log(values)
       };
 
     return (
@@ -63,7 +64,7 @@ const LoginForm = (props) => {
                     color="primary" 
                     className={classes.button}
                     onClick={() => {
-                        auth.login(() => {
+                        auth.login(values, () => {
                           props.history.push("/");
                         });
                     }}>
