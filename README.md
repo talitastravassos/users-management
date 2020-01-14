@@ -19,6 +19,9 @@ In the project directory:
 - run `json-server --watch db.json` at the root of the project, and change the commented line in baseURL variable in ./API/requests.js.
 - start application.
 
+### Screenshot
+![Users Management Screenshot](https://i.imgur.com/kx7AlKo.png)
+
 ### Live Demo
 - https://tst-users-management.netlify.com
 
