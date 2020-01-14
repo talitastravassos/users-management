@@ -13,7 +13,6 @@ const TableUsers = () => {
             { title: 'Nome', field: 'nome' },
             { title: 'Sobrenome', field: 'sobrenome' },
             { title: 'Email', field: 'email' },
-            { title: 'Senha', field: 'password' },
             {
                 title: 'Tipo de Usuário',
                 field: 'tipoUsuario',
